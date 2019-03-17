@@ -1,61 +1,57 @@
 language: cpp
-
 sudo: required
-
 matrix:
-    include:
-        # works on Precise and Trusty
-        - os: linux
-          addons:
-              apt:
-                  sources:
-                      - ubuntu-toolchain-r-test
-                  packages:
-                      - g++-4.9
-          env:
-              - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
+ include:
+  # works on Precise and Trusty
+  - os: linux
+    addons:
+     apt:
+      sources:
+       - ubuntu-toolchain-r-test
+      packages:
+       - g++-4.9
+      env:
+       - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
+  - os: linux
+    addons:
+     apt:
+      sources:
+       - ubuntu-toolchain-r-test
+      packages:
+       - g++-5
+    env:
+     - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
 
-        # works on Precise and Trusty
-        - os: linux
-          addons:
-              apt:
-                  sources:
-                      - ubuntu-toolchain-r-test
-                  packages:
-                      - g++-5
-          env:
-              - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
+  # works on Precise and Trusty
+  - os: linux
+    addons:
+     apt:
+      sources:
+       - ubuntu-toolchain-r-test
+      packages:
+       - g++-6
+    env:
+     - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
 
-        # works on Precise and Trusty
-        - os: linux
-          addons:
-              apt:
-                  sources:
-                      - ubuntu-toolchain-r-test
-                  packages:
-                      - g++-6
-          env:
-              - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
-
-        # works on Precise and Trusty
-        - os: linux
-          addons:
-              apt:
-                  sources:
-                      - ubuntu-toolchain-r-test
-                  packages:
-                      - g++-7
-          env:
-              - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+  # works on Precise and Trusty
+  - os: linux
+    addons:
+     apt:
+      sources:
+       - ubuntu-toolchain-r-test
+      packages:
+       - g++-7
+    env:
+     - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
 before_install:
-    - eval "${MATRIX_EVAL}"
-    - sudo add-apt-repository -y ppa:wfg/0ad
-    - sudo apt-get update
-    - sudo apt-get install -q -y libsodium-dev libgloox-dev libenet-dev libboost1.58-dev libboost-filesystem1.58-dev
-    - sudo apt-get install -q libegl1-mesa-dev libgles2-mesa-dev
-    - sudo apt-get install -q libcurl4-gnutls-dev libicu-dev libminiupnpc-dev libnspr4-dev libnvtt-dev libogg-dev libopenal-dev libpng-dev libsdl2-dev libvorbis-dev libwxgtk3.0-dev libxcursor-dev libxml2-dev zlib1g-dev
+ - eval "${MATRIX_EVAL}"
+ - sudo add-apt-repository -y ppa:wfg/0ad
+ - sudo apt-get update
+ - sudo apt-get install -q -y libsodium-dev libgloox-dev libenet-dev libboost1.58-dev libboost-filesystem1.58-dev
+ - sudo apt-get install -q libegl1-mesa-dev libgles2-mesa-dev
+ - sudo apt-get install -q libcurl4-gnutls-dev libicu-dev libminiupnpc-dev libnspr4-dev libnvtt-dev libogg-dev libopenal-dev libpng-dev libsdl2-dev libvorbis-dev libwxgtk3.0-dev libxcursor-dev libxml2-dev zlib1g-dev
 
 script:
-    - build/workspaces/update-workspaces.sh --with-system-nvtt
-    - make -C build/workspaces/gcc
+ - build/workspaces/update-workspaces.sh --with-system-nvtt
+ - make -C build/workspaces/gcc
