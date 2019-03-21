@@ -1,3 +1,9 @@
+dist: trusty
+addons:
+ sonarcloud:
+  organization: "nthhtn-github" # the key of the org you chose at step #3
+   token:
+    secure: 5d429bdda588f134e4f3292a169b80b4d9d9513a # encrypted value of your token
 language: cpp
 sudo: required
 matrix:
@@ -55,3 +61,5 @@ before_install:
 script:
  - build/workspaces/update-workspaces.sh --with-system-nvtt
  - make -C build/workspaces/gcc
+ - sonar-scanner
+ 
