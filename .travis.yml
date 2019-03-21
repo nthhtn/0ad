@@ -15,8 +15,8 @@ matrix:
        - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
      sonarcloud:
       organization: "nthhtn-github" # the key of the org you chose at step #3token:
-        token:
-          secure: "5d429bdda588f134e4f3292a169b80b4d9d9513a" # encrypted value of your token
+      token:
+        secure: "5d429bdda588f134e4f3292a169b80b4d9d9513a" # encrypted value of your token
   - os: linux
     addons:
      apt:
@@ -41,7 +41,7 @@ matrix:
        - g++-6
      sonarcloud:
       organization: "nthhtn-github" # the key of the org you chose at step #3
-       token:
+      token:
         secure: "5d429bdda588f134e4f3292a169b80b4d9d9513a" # encrypted value of your token
     env:
      - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
@@ -56,8 +56,8 @@ matrix:
        - g++-7
       sonarcloud:
         organization: "nthhtn-github" # the key of the org you chose at step #3
-          token:
-            secure: "5d429bdda588f134e4f3292a169b80b4d9d9513a" # encrypted value of your token
+        token:
+          secure: "5d429bdda588f134e4f3292a169b80b4d9d9513a" # encrypted value of your token
     env:
      - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
