@@ -79,3 +79,6 @@ long.*.po
 
 # OSX specific data
 .DS_Store
+
+bw-output/
+.scannerwork/
